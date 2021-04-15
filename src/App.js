@@ -5,20 +5,32 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Headers from './components/Headers/Headers';
+import Home from './components/Home/Home';
+import Orders from './components/Orders/Orders';
+import AddProduct from './components/AddProduct/AddProduct';
+import Login from './components/Login/Login';
 
 function App() {
   return (
     <div>
        <Router>
+        <Headers></Headers>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home/>
           </Route>
-          <Route path="/about">
-            <About />
+          <Route path='/home'>
+            <Home></Home>
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
+          <Route path='/login'>
+            <Login/>
+          </Route>
+          <Route path="/addProduct">
+           <AddProduct/> 
+          </Route>
+          <Route path="/orders">
+            <Orders/>
           </Route>
         </Switch>
     </Router>
