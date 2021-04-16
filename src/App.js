@@ -10,10 +10,15 @@ import Home from './components/Home/Home';
 import Orders from './components/Orders/Orders';
 import AddProduct from './components/AddProduct/AddProduct';
 import Login from './components/Login/Login';
+import { createContext } from 'react';
+import { useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
+export const UserContext = createContext();
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <div>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
        <Router>
         <Headers></Headers>
         <Switch>
@@ -26,15 +31,15 @@ function App() {
           <Route path='/login'>
             <Login/>
           </Route>
-          <Route path="/addProduct">
+          <PrivateRoute path="/addProduct">
            <AddProduct/> 
-          </Route>
-          <Route path="/orders">
+          </PrivateRoute>
+          <PrivateRoute path="/orders">
             <Orders/>
-          </Route>
+          </PrivateRoute>
         </Switch>
     </Router>
-    </div>
+    </UserContext.Provider>
   );
 }
 
