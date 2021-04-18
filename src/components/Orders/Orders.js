@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserContext } from '../../App';
 
 const Orders = () => {
@@ -10,7 +11,7 @@ const Orders = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch('')
+        fetch(`http://localhost:5000/orders?email=${loggedInUser.email}`)
         .then(res => res.json())
         .then(data => {
             setOrders(data)

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import spinner from '../../icons/Group 33149.png'
 import Product from "../Product/Product";
+import './Home.css';
 
 
 const Home = () => {

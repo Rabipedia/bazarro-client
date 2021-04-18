@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import './ManageAllProducts.css';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ManageAllProducts = (props) => {

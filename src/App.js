@@ -1,4 +1,5 @@
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,7 +42,7 @@ function App() {
           <PrivateRoute path='/admin'>
             <Admin/>
           </PrivateRoute>
-          <PrivateRoute path="/addProduct">
+          <PrivateRoute path="/addProducts">
            <AddProduct/> 
           </PrivateRoute>
           <PrivateRoute path="/orders">
@@ -53,6 +54,9 @@ function App() {
           <PrivateRoute path="/editProducts">
             <EditProduct/>
           </PrivateRoute>
+          <Route to="*">
+            <NotFound/>
+          </Route>
         </Switch>
     </Router>
     </UserContext.Provider>

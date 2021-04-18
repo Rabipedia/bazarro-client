@@ -1,15 +1,26 @@
 import React, { useState } from "react";
+import './Login.css'
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import googleIcon from '../../icons/Group 573.png';
+import { useContext } from "react";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router";
 
 const Login = () => {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   } else {
     firebase.app();
+  }
+  
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  let {from} = location.state || {
+    from: { pathname: "/"}
   }
 
   const [user, setUser] = useState({

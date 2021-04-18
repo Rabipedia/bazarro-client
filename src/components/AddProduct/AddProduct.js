@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddProduct = () => {
   const {
@@ -17,7 +18,7 @@ const AddProduct = () => {
         quantity: data.quantity,
         price: data.price
       };
-      const url = `/addProducts`
+      const url = `http://localhost:5000//addProducts`
       fetch(url, {
         method: 'POST',
         headers: {
@@ -50,6 +51,11 @@ const AddProduct = () => {
   };
   return (
     <div>
+      <div className='side-nav col-md-4'>
+        <SideMenu></SideMenu>
+      </div>
+      <div className='col-md-8'>
+        <h3 className="pt-3">Add Product</h3>
       <form onSubmit={handleSubmit(onSubmit)} style={{ margin: "0 auto" }}>
         <input
           className="form-control"
